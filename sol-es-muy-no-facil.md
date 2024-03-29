@@ -1,0 +1,37 @@
+- system_program
+    - transfer() [instruction_handler NOT instructions]
+- memo_program
+    - memo() [instruction_handler NOT instructions]
+- funfact -> lighthouse protocol -> has instruction_handler which checks your SOL balance TODO: read this [code](https://github.com/Jac0xb/lighthouse)
+- token mint addresses
+- token_program
+    - transfer() [instruction_handler NOT instructions]
+- program derived address (key/value store solana includes it)
+    - not on the cryptography curves
+        - AKA offchain
+    - bunch of different types, strings, addresses, etc
+    - buildATA() [instruction_handler]
+- lots more programs but ALL HAVE
+    - address and instruction_handlers
+    - look closely, some pubkeys of programs are cute bc you can keep making keypairs til you get one you like lmfao
+- storing data
+    - bit more interesting than sending tokens around
+    - create_movie_program
+        - addReview()
+            - str "titanic"
+        - program derived address
+            - content, rating
+- solana program frameworks (anchor, poseidon)
+    - follow turbine for TS beta
+- summary: people
+    - everyone has keypair
+    - pubkey === address
+    - privkey === signing
+        - YOU CAN USE SAME KEYPAIR ACROSS DIFFERENT NETWORKS BUT MAKE SURE YOU'RE POINTING TO DEVNET DUMMY
+- summary: programs
+    - programs deployed to an address
+    - programs have f(x)s called instruction_handlers inside --> data is stored seperately
+    - transactions include instructions for different program's instruction handlers
+- summary: data items
+    - programs store data items in program derived addresses
+    - PDAs are created from inputs - the same inputs always return the same adress!
